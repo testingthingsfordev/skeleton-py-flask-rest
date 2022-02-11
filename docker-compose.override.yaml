@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+    api:
+        container_name: api-flask
+        build:
+            context: .
+            dockerfile: docker/python/dev/Dockerfile
+        volumes:
+            -   "${PWD}:/opt/app"
+        ports:
+            - "5000:5000"
+        networks:
+            api-skeleton-py-flask:
+    flask-db:
+        container_name: api-flask-database
+        image: postgres:13.4-alpine
+        restart: on-failure
+        volumes:
+            - api-skeleton-py-flask-db:/var/lib/postgresql/data
+        environment:
+            POSTGRES_DB: mydatabase
+            POSTGRES_USER: test
+            POSTGRES_PASSWORD: password
+        ports:
+            - "5432:5432"
+        networks:
+            api-skeleton-py-flask:
+
+volumes:
+    api-skeleton-py-flask-db:
+        name: api-skeleton-py-flask-data
+
+networks:
+    api-skeleton-py-flask:
+        name: api-skeleton-py-flask
