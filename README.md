@@ -1,4 +1,4 @@
-<img align="left"  width="100" height="150" src=".github/rviewer-light.svg" />
+<img align="left"  width="150" height="150" src=".github/rviewer_logo--dark.png" />
 
 ## Rviewer skeleton: Python, Flask & PostgreSQL
 
@@ -28,8 +28,8 @@ Within the [Makefile](Makefile) you can handle the entire flow to get everything
 3. Migrate any DB pending task: `make migrate`
 4. Start the application: `make up`
 
-As you could see on the [Makefile](Makefile) script, you could just avoid those steps and just execute `make up`, as **
-build** and **migrate** are dependants of it.
+As you could see on the [Makefile](Makefile) script, you could just avoid those steps and just execute `make up`, as 
+**build** and **migrate** are dependants of it.
 
 Go to `http://127.0.0.1:5050/ping` to see that everything is up & running!
 
@@ -55,7 +55,7 @@ You can use this as a starting point to continue with this architecture, or adap
 ## Support
 
 If you are having problems or need anything else, please let us know by
-[raising a new issue](https://github.com/Rviewer-Challenges/skeleton-py-flask/issues/new/choose).
+[raising a new issue](https://github.com/Rviewer-Challenges/api-skeleton-py-flask/issues/new/choose).
 
 ## License
 
