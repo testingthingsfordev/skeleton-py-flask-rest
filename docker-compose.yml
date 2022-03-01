@@ -1,36 +1,38 @@
 version: '3.9'
 
 services:
-    api:
-        container_name: api-flask
-        depends_on:
-            -   postgres-skeleton-db
+    skeleton-py-flask-api:
+        container_name: skeleton-py-flask-api
         build:
             context: .
             dockerfile: docker/Dockerfile
         env_file:
             - dev.env
+        depends_on:
+            - skeleton-py-flask-api-postgres
         volumes:
-            -   "${PWD}:/opt/app"
+            - "${PWD}:/opt/app"
         ports:
-            -   "5050:5050"
+            - "5050:5050"
         networks:
-            internal-net:
+            skeleton-py-flask-net:
 
-    postgres-skeleton-db:
-        container_name: postgres-skeleton-db
+    skeleton-py-flask-api-postgres:
+        container_name: skeleton-py-flask-postgres
         image: postgres:13.4-alpine
         restart: on-failure
         volumes:
-            - rv-volume:/var/lib/postgresql/data
+            - skeleton-py-flask-api-postgres-volume:/var/lib/postgresql/data
+        ports:
+            - "5432:5432"
         env_file:
             - dev.env
         networks:
-            internal-net:
+            skeleton-py-flask-net:
 
 volumes:
-    rv-volume:
+    skeleton-py-flask-api-postgres-volume:
 
 networks:
-    internal-net:
-        name: rv-skeleton-net
+    skeleton-py-flask-net:
+        name: skeleton-py-flask-net
