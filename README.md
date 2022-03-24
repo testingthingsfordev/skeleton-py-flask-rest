@@ -9,6 +9,8 @@
 This repository is a Python skeleton with Flask & PostgreSQL designed for quickly getting started developing an API.
 Check the [Getting Started](#getting-started) for full details.
 
+---
+
 ## Technologies
 
 * [Python 3.9](https://www.python.org/downloads/release/python-390/)
